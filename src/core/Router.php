@@ -52,7 +52,8 @@ class Router
 
     private function handleWebRequest()
     {
-        $class = ucfirst($this->uri[0] ?? "Home") . 'Controller';
+        $this->uri[0] = empty($this->uri[0]) ? "Home" : $this->uri[0];
+        $class = ucfirst($this->uri[0]) . 'Controller';
         $toInstantiate = $this->namespaceController . "\\" . $class;
 
         if (!class_exists($toInstantiate)) {
