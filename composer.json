@@ -1,0 +1,22 @@
+{
+  "name": "vitor/php-server-pages",
+  "description": "manage your php pages",
+  "type": "project",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Vitor Lopes",
+      "email": "48527153+vitorglopes@users.noreply.github.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "src\\": "src/"
+    }
+  },
+  "require": {
+    "doctrine/orm": "3.2.2",
+    "doctrine/migrations": "3.8.1"
+  }
+}

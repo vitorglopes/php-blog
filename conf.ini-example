@@ -1,0 +1,7 @@
+APP_NAME=PHP SERVER PAGES
+
+DB_TYPE=mysql
+DB_HOST=localhost
+DB_USER=root
+DB_PASS=root
+DB_NAME=phpserver
