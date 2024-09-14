@@ -17,7 +17,7 @@ nav {
 footer {
   background-color: var(--darkergray);
   position: relative;
-  color: var(--white);
+  color: #ffff !important;
   font-size: 11px;
   text-align: center;
   padding: 10px 0;

@@ -4,7 +4,7 @@ namespace src\views\includes;
 
 ?>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand roboto-black" href="<?= SITE_ADDRESS ?>home/index"></i> THE BORING BLOG</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,10 +14,10 @@ namespace src\views\includes;
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">&nbsp;</li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link1</a>
+                    <a class="nav-link" href="<?= SITE_ADDRESS ?>tendencias/index">Tendências <i class="icon icon-arrow-up icon-black icon-16"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link2</a>
+                    <a class="nav-link" href="<?= SITE_ADDRESS ?>posts/novo">Novo post <i class="icon icon-plus-circle icon-black icon-16"></i></a>
                 </li>
             </ul>
             <div class="col-md-4" style="margin-right: 10px;">
