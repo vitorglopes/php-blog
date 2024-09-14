@@ -1,6 +1,6 @@
 <?php
 
-namespace src\view\home;
+namespace src\view\search;
 
 $search = $data['search'] ?? "";
 

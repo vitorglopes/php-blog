@@ -14,14 +14,14 @@ namespace src\views\includes;
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">&nbsp;</li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= SITE_ADDRESS ?>tendencias/index">Tendências <i class="icon icon-arrow-up icon-black icon-16"></i></a>
+                    <a class="nav-link" href="<?= SITE_ADDRESS ?>threads/index">Tendências <i class="icon icon-arrow-up icon-black icon-16"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= SITE_ADDRESS ?>posts/novo">Novo post <i class="icon icon-plus-circle icon-black icon-16"></i></a>
+                    <a class="nav-link" href="<?= SITE_ADDRESS ?>posts/new">Novo post <i class="icon icon-plus-circle icon-black icon-16"></i></a>
                 </li>
             </ul>
             <div class="col-md-4" style="margin-right: 10px;">
-                <form class="d-flex" id="form-search" role="search" action="<?= SITE_ADDRESS ?>pesquisa/index" method="post">
+                <form class="d-flex" id="form-search" role="search" action="<?= SITE_ADDRESS ?>search/index" method="post">
                     <input class="form-control no-radius" type="search" id="search" name="search" placeholder="Pesquisa" aria-label="Pesquisa">
                     <button class="btn btn-secondary no-radius" style="margin-left: 2px;" type="submit">
                         <i class="icon icon-search icon-16 icon-white"></i>
