@@ -2,7 +2,7 @@
 
 use src\core\App;
 
-require "vendor/autoload.php";
+require_once "vendor/autoload.php";
 
 session_start();
 
