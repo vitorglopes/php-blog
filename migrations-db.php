@@ -3,8 +3,6 @@
 use src\core\Conf;
 
 require_once 'vendor/autoload.php';
-require_once 'src/core/bootstrap.php';
-
 $Conf = new Conf();
 
 return [

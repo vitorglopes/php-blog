@@ -21,8 +21,8 @@ class Conf
         $this->documentRoot = filter_var($_SERVER['DOCUMENT_ROOT']);
         $this->pathToConfIni = $this->documentRoot . DIRECTORY_SEPARATOR . "conf.ini";
 
-        if (empty($this->documentRoot)) {
-            $this->documentRoot = __DIR__ . DIRECTORY_SEPARATOR;
+        if ($this->pathToConfIni == "\conf.ini" || empty($this->pathToConfIni)) {
+            $this->documentRoot = __DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR;
             $this->pathToConfIni = $this->documentRoot . "conf.ini";
         }
         define('DOCUMENT_ROOT', $this->documentRoot);
@@ -30,12 +30,6 @@ class Conf
 
     public function readConfig()
     {
-        
-
-        // if ($this->pathToConfIni == "/conf.ini") {
-        //     $this->pathToConfIni = __DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . "conf.ini";
-        // }
-
         if (!file_exists($this->pathToConfIni)) {
             throw new Exception("File not found: " . $this->pathToConfIni);
         }
@@ -51,6 +45,6 @@ class Conf
 
     public function initializeDoctrineBootstrap()
     {
-        require_once 'bootstrap.php';
+        require 'bootstrap.php';
     }
 }
