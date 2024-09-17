@@ -10,5 +10,5 @@ return [
     'user' => CONF['DB_USER'],
     'password' => CONF['DB_PASS'],
     'host' => CONF['DB_HOST'],
-    'driver' => CONF['DB_DRIVER']
+    'driver' => CONF['DB_DRIVER'] == 'mysql' ? 'pdo_mysql' : 'mysql'
 ];
