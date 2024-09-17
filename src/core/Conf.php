@@ -13,7 +13,7 @@ class Conf
     {
         $this->setDocumentRoot();
         $this->readConfig();
-        $this->initializeDoctrineBootstrap();
+        $this->bootstrap();
     }
 
     public function setDocumentRoot()
@@ -43,8 +43,8 @@ class Conf
         return $config;
     }
 
-    public function initializeDoctrineBootstrap()
+    public function bootstrap()
     {
-        require 'bootstrap.php';
+        require_once "bootstrap.php";
     }
 }

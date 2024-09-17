@@ -14,7 +14,7 @@ namespace src\view\home;
 <body>
     <?php require 'src/includes/header.php'; ?>
     <div class="text-center">
-        <img src="<?= SITE_PUBLIC ?>img/chicken-eating-worm.svg" class="img-fluid" alt="chicken">
+
     </div>
     <?php require 'src/includes/footer.php'; ?>
 </body>

@@ -2,21 +2,19 @@
 
 namespace src\core;
 
-use Doctrine\DBAL\DriverManager;
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\ORMSetup;
-use Doctrine\ORM\Tools\Setup;
+use Illuminate\Database\Capsule\Manager;
 
-$paths = [DOCUMENT_ROOT . '/src/entities'];
-$isDevMode = false;
+$Manager = new Manager();
+$Manager->addConnection([
+    'driver'    => CONF['DB_DRIVER'],
+    'host'      => CONF['DB_HOST'],
+    'database'  => CONF['DB_NAME'],
+    'username'  => CONF['DB_USER'],
+    'password'  => CONF['DB_PASS'],
+    'charset'   => CONF['DB_CHARSET'],
+    'collation' => CONF['DB_COLLATION'],
+    'prefix'    => '',
+]);
 
-$dbParams = [
-    'driver'   => CONF['DB_DRIVER'],
-    'user'     => CONF['DB_USER'],
-    'password' => CONF['DB_PASS'],
-    'dbname'   => CONF['DB_NAME']
-];
-
-$config = ORMSetup::createAttributeMetadataConfiguration($paths, $isDevMode);
-$connection = DriverManager::getConnection($dbParams, $config);
-$entityManager = new EntityManager($connection, $config);
+$Manager->setAsGlobal();
+$Manager->bootEloquent();

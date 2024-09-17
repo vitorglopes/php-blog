@@ -1,8 +1,9 @@
 APP_NAME=BLOG
 
-DB_TYPE=mysql
-DB_DRIVER=pdo_mysql
+DB_DRIVER=mysql
 DB_HOST=localhost
 DB_USER=root
 DB_PASS=root
 DB_NAME=blog
+DB_CHARSET=utf8
+DB_COLLATION=utf8_unicode_ci
