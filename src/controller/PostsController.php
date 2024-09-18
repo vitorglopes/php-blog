@@ -7,7 +7,7 @@ use src\core\IController;
 use src\core\Util;
 use src\services\PostsService;
 
-final class PostsController extends Controller
+class PostsController extends Controller implements IController
 {
     private $PostsService;
 

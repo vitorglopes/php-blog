@@ -21,7 +21,7 @@ namespace src\views\includes;
                 </li>
             </ul>
             <div class="col-md-4" style="margin-right: 10px;">
-                <form class="d-flex" id="form-search" role="search" action="<?= SITE_ADDRESS ?>search/index" method="post">
+                <form class="d-flex" id="form-search" role="search" action="<?= SITE_ADDRESS ?>search/index" method="get">
                     <input class="form-control no-radius" type="search" id="search" name="search" placeholder="Pesquisa" aria-label="Pesquisa">
                     <button class="btn btn-secondary no-radius" style="margin-left: 2px;" type="submit">
                         <i class="icon icon-search icon-16 icon-white"></i>
