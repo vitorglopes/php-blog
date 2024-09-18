@@ -4,9 +4,9 @@ namespace src\views\includes;
 
 ?>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+<nav class="navbar navbar-expand-md bg-dark border-bottom border-body" data-bs-theme="dark">
     <div class="container-fluid">
-        <a class="navbar-brand roboto-black" href="<?= SITE_ADDRESS ?>home/index"></i> THE BORING BLOG</a>
+        <a class="navbar-brand roboto-black" href="<?= SITE_ADDRESS ?>home/index"></i> THE BORING BLOG <i class="icon icon-monitor icon-white icon-24"></i></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -14,10 +14,10 @@ namespace src\views\includes;
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">&nbsp;</li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= SITE_ADDRESS ?>threads/index">Tendências <i class="icon icon-arrow-up icon-black icon-16"></i></a>
+                    <a class="nav-link" href="<?= SITE_ADDRESS ?>threads/index">Tendências <i class="icon icon-activity icon-white icon-16"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= SITE_ADDRESS ?>posts/new">Novo post <i class="icon icon-plus-circle icon-black icon-16"></i></a>
+                    <a class="nav-link" href="<?= SITE_ADDRESS ?>posts/new">Novo post <i class="icon icon-plus-circle icon-white icon-16"></i></a>
                 </li>
             </ul>
             <div class="col-md-4" style="margin-right: 10px;">

@@ -1,11 +1,15 @@
 :root {
   --white: #ffff;
   --lightgray: #e3e3e3;
-  --darkergray: #333;
+  --darkergray: #454545;
+  --red: #b71c1c;
+  --orange: #fc3a0f;
+  --blue: #0fc9fc;
+  --green: #00f18a;
 }
 
 body {
-  background-color: var(--lightgray);
+  background-color: var(--white);
   font-family: Roboto, Arial, Helvetica, sans-serif;
   font-size: 16px;
 }
@@ -15,16 +19,34 @@ nav {
 }
 
 footer {
-  background-color: var(--darkergray);
-  position: relative;
   color: #ffff !important;
   font-size: 11px;
-  text-align: center;
-  padding: 10px 0;
-  bottom: 0;
-  width: 100%;
 }
 
 .no-radius {
   border-radius: 0% !important;
+}
+
+.font-11 {
+  font-size: 11px !important;
+}
+
+.text-green {
+  color: var(--green) !important;
+}
+
+.text-red {
+  color: var(--red) !important;
+}
+
+.text-blue {
+  color: var(--blue) !important;
+}
+
+.text-orange {
+  color: var(--orange) !important;
+}
+
+.text-black {
+  color: #000 !important;
 }

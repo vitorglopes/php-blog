@@ -7,7 +7,7 @@ use src\core\IController;
 use src\core\Util;
 use src\services\PostsService;
 
-class PostsController extends Controller implements IController
+final class PostsController extends Controller
 {
     private $PostsService;
 
@@ -18,13 +18,15 @@ class PostsController extends Controller implements IController
 
     public function index()
     {
-        $this->new();
+        $postId = Util::requestSecure('sid', 'get');
+        $data = $this->PostsService->read($postId);
+        $this->view('posts/index', [
+            'post' => $data
+        ]);
     }
 
     public function new()
     {
-        $this->view('posts/index', []);
+        $this->view('posts/new', []);
     }
-
-    public function pageview(string $id) {}
 }

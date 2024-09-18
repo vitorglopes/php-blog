@@ -16,9 +16,22 @@ class HomeController extends Controller implements IController
 
     public function index()
     {
-        echo "<br><br><br><br><br><br><br><pre>";
-        $pagination = $this->PostServices->pagination();
-        var_dump($pagination);
-        $this->view('home/index');
+        $threads = $this->PostServices->pagination([
+            'useCase' => 'threads',
+            'rowsPerPage' => 5,
+            'limit' => 5,
+            'order' => 'views'
+        ]);
+
+        $lastsPosts = $this->PostServices->pagination([
+            'useCase' => 'lastsPosts',
+            'rowsPerPage' => 10,
+            'order' => ''
+        ]);
+
+        $this->view('home/index', [
+            'threads' => $threads,
+            'lastsPosts' => $lastsPosts
+        ]);
     }
 }

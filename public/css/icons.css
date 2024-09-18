@@ -27,6 +27,10 @@
   text-indent: -1000px;
 }
 
+.icon-vertical-baseline {
+  vertical-align: baseline !important;
+}
+
 .icon-16 {
   width: 16px !important;
   height: 16px !important;
