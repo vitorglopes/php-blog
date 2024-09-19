@@ -21,6 +21,14 @@ class PostsService
         return $this->posts::find($id);
     }
 
+    public function view($id)
+    {
+        $post = $this->read($id);
+        $post->views = (int) $post->views + 1;
+        $post->save();
+        return $post;
+    }
+
     public function pagination(array $req): array
     {
         $search = $req['search'] ?? '';

@@ -19,14 +19,15 @@ class PostsController extends Controller implements IController
     public function index()
     {
         $postId = Util::requestSecure('sid', 'get');
-        $data = $this->PostsService->read($postId);
+        $data = $this->PostsService->view($postId);
         $this->view('posts/index', [
             'post' => $data
         ]);
     }
 
-    public function new()
+    public function edit()
     {
-        $this->view('posts/new', []);
+        $id = Util::requestSecure('sid', 'get');
+        $this->view('posts/edit', []);
     }
 }
