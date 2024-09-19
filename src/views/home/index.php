@@ -18,8 +18,8 @@ $lastsPosts = $data['lastsPosts']['data'];
 
 <body>
     <?php require 'src/includes/header.php'; ?>
-    <div class="container">
-        <div class="row mt-4">
+    <div class="container" id="page-container">
+        <div class="row mt-4" id="content-wrap">
             <div class="col-md-12">
                 <h3 class="roboto-black text-red">Em alta nessa semana</h3>
                 <?php

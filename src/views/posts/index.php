@@ -14,12 +14,12 @@ $post = $data['post'];
 
 <body>
     <?php require 'src/includes/header.php'; ?>
-    <div class="container">
-        <div class="row mt-4">
+    <div class="container" id="page-container">
+        <div class="row mt-4" id="content-wrap">
             <div class="col-md-12">
-                <h3 class="roboto-black"><?= $post['title'] ?></h3>
-                <p class="text-body-secondary text-start"><?= $post['subtitle'] ?></p>
-                <p class="text-start"><?= $post['content'] ?></p>
+                <h3 class="roboto-black"><?= $post->title ?></h3>
+                <p class="text-body-secondary text-start"><?= $post->subtitle ?></p>
+                <p class="text-start"><?= $post->content ?></p>
             </div>
         </div>
     </div>
