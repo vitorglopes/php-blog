@@ -34,8 +34,9 @@ $lastsPosts = $data['lastsPosts']['data'];
                         </a>
                         <p class="roboto-regular"><?= $item['subtitle'] ?></p>
                         <small></small>
-                        <small class="roboto-regular font-11"> <i class="icon icon-eye icon-black icon-16"></i> <?= $item['views'] . " visualizações." ?>
-                            Postado por <?= $item['userFirstName'] . " " . $item['userLastName'] ?> em <?= Util::dateFromDb($item['registeredAt']) ?>
+                        <small class="roboto-regular font-11">
+                            <i class="icon icon-eye icon-black icon-16"></i> <?= $item['views'] . " visualizações." ?>
+                            <i class="icon icon-eye icon-user icon-16"></i><?= $item['userFirstName'] . " " . $item['userLastName'] ?> em <?= Util::dateFromDb($item['registeredAt']) ?>
                         </small>
                     </div>
                     <br>
@@ -53,8 +54,9 @@ $lastsPosts = $data['lastsPosts']['data'];
                         </a>
                         <p class="roboto-regular"><?= $item['subtitle'] ?></p>
                         <small></small>
-                        <small class="roboto-regular font-11"> <i class="icon icon-eye icon-black icon-16"></i> <?= $item['views'] . " visualizações." ?>
-                            Postado por <?= $item['userFirstName'] . " " . $item['userLastName'] ?> em <?= Util::dateFromDb($item['registeredAt']) ?>
+                        <small class="roboto-regular font-11">
+                            <i class="icon icon-eye icon-black icon-16"></i> <?= $item['views'] . " visualizações." ?>
+                            <i class="icon icon-eye icon-user icon-16"></i> <?= $item['userFirstName'] . " " . $item['userLastName'] ?> em <?= Util::dateFromDb($item['registeredAt']) ?>
                         </small>
                     </div>
                     <br>
