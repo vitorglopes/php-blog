@@ -14,6 +14,7 @@ class Controller
     {
         $this->util = new Util();
         $this->response = new Response();
+        $this->setDefaultPages();
     }
 
     public function setDefaultPages()
@@ -25,5 +26,21 @@ class Controller
     public function view(string $view, $data = [])
     {
         require "src/views/$view.php";
+    }
+
+    public function redirect(string $route)
+    {
+        header("Location: " . SITE_ADDRESS . $route);
+    }
+
+    public function userLogged(string $returnToPage)
+    {
+        if ($_SESSION['login']) {
+            return true;
+        }
+
+        $this->view('login/index', [
+            'returnToPage' => $returnToPage
+        ]);
     }
 }

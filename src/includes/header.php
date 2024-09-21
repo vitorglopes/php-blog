@@ -2,6 +2,9 @@
 
 namespace src\views\includes;
 
+$sessionOk = isset($_SESSION['login']) && $_SESSION['login'] == true ? true : false;
+$welcome = $sessionOk ? "Olá, " . $_SESSION['firstName'] . "!" : "Fazer Login";
+
 ?>
 
 <nav class="navbar navbar-expand-md bg-dark border-bottom border-body" data-bs-theme="dark">
@@ -17,19 +20,19 @@ namespace src\views\includes;
                     <a class="nav-link" href="<?= SITE_ADDRESS ?>threads/index">Tendências <i class="icon icon-activity icon-white icon-16"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= SITE_ADDRESS ?>posts/new">Novo post <i class="icon icon-plus-circle icon-white icon-16"></i></a>
+                    <a class="nav-link" href="<?= SITE_ADDRESS ?>posts/edit">Novo post <i class="icon icon-plus-circle icon-white icon-16"></i></a>
                 </li>
             </ul>
             <div class="col-md-4" style="margin-right: 10px;">
                 <form class="d-flex" id="form-search" role="search" action="<?= SITE_ADDRESS ?>search/index" method="get">
                     <input class="form-control no-radius" type="search" id="q" name="q" placeholder="Pesquisa" aria-label="Pesquisa">
-                    <button class="btn btn-secondary no-radius" style="margin-left: 2px;" type="submit">
+                    <button class="btn no-radius background-red" style="margin-left: 2px;" type="submit">
                         <i class="icon icon-search icon-16 icon-white"></i>
                     </button>
                 </form>
             </div>
             <span class="navbar-text">
-                <a class="nav-link" href="<?= SITE_ADDRESS ?>login/index"> Fazer Login</a>
+                <a class="nav-link" href="<?= SITE_ADDRESS ?>login/index"><?= $welcome ?></a>
             </span>
             <!-- <ul>
                 <li class="nav-item dropdown">

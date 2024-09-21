@@ -8,10 +8,11 @@ namespace src\views\includes;
         <p class="roboto-bold">&copy; The Boring Blog, <?= date("Y") ?> - Todos os direitos reservados.</p>
     </div>
 </footer>
-<script type="text/javascript" src="<?= SITE_PUBLIC ?>js/libs/jquery-3.7.1.min.js"></script>
-<script type="text/javascript" src="<?= SITE_PUBLIC ?>js/libs/bootstrap-5.3.3.bundle.min.js"></script>
-<script type="text/javascript" src="<?= SITE_PUBLIC ?>js/libs/select2.full.min.js"></script>
-<script type="text/javascript" src="<?= SITE_PUBLIC ?>js/index.js"></script>
+<script type="text/javascript" src="<?= SITE_PUBLIC_JS ?>libs/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="<?= SITE_PUBLIC_JS ?>libs/bootstrap-5.3.3.bundle.min.js"></script>
+<script type="text/javascript" src="<?= SITE_PUBLIC_JS ?>libs/bootstrap.bundle.min.js.map"></script>
+<script type="text/javascript" src="<?= SITE_PUBLIC_JS ?>libs/select2.full.min.js"></script>
+<script type="text/javascript" src="<?= SITE_PUBLIC_JS ?>index.js"></script>
 <script type="text/javascript">
     const SITE_ADDRESS = "<?= SITE_ADDRESS ?>";
     const SITE_PUBLIC = "<?= SITE_PUBLIC ?>";

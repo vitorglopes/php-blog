@@ -47,6 +47,22 @@ footer {
   font-size: 11px !important;
 }
 
+.background-dark {
+  background-color: var(--darkergray) !important;
+}
+
+.background-gray {
+  background-color: var(--lightgray) !important;
+}
+
+.background-white {
+  background-color: var(--white) !important;
+}
+
+.background-red {
+  background-color: var(--red) !important;
+}
+
 .text-green {
   color: var(--green) !important;
 }

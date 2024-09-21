@@ -27,7 +27,9 @@ class PostsController extends Controller implements IController
 
     public function edit()
     {
-        $id = Util::requestSecure('sid', 'get');
+        $this->userLogged('posts/edit');
+
+        // $this->PostsService->insertNew();
         $this->view('posts/edit', []);
     }
 }

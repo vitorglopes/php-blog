@@ -28,7 +28,7 @@ namespace src\views;
 
 <body>
     <div style="text-align: center;">
-        <img width="500" height="300" src="<?= SITE_PUBLIC ?>img/404-not-found.svg" alt="Página não encontrada">
+        <img width="500" height="300" src="<?= SITE_PUBLIC_IMG ?>404-not-found.svg" alt="Página não encontrada">
         <p class="roboto-bold">Página não encontrada</p>
         <br>
         <a class="roboto-thin-bold" href="<?= SITE_ADDRESS . "home/index" ?>">Voltar para o início</a>

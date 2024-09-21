@@ -9,16 +9,16 @@ use Illuminate\Database\Capsule\Manager;
 
 class PostsService
 {
-    private $posts;
+    private $Posts;
 
     public function __construct()
     {
-        $this->posts = new Posts();
+        $this->Posts = new Posts();
     }
 
     public function read($id)
     {
-        return $this->posts::find($id);
+        return $this->Posts::find($id);
     }
 
     public function view($id)
@@ -36,6 +36,10 @@ class PostsService
         $order = $req['order'] ?? '';
         $limit = $req['limit'] ?? '';
         $rowsPerPage = $req['rowsPerPage'] ?? 10;
+
+        if ($useCase == 'search' && $search == "") {
+            return ['data' => []];
+        }
 
         $query = Manager::table('posts')
             ->join('categories', 'categories.id', '=', 'posts.category_id')
