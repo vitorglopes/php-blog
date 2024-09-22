@@ -13,6 +13,7 @@ class Conf
     {
         $this->setDocumentRoot();
         $this->readConfig();
+        date_default_timezone_set(CONF['TIMEZONE']);
         $this->bootstrap();
     }
 

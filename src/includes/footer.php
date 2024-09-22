@@ -10,10 +10,11 @@ namespace src\views\includes;
 </footer>
 <script type="text/javascript" src="<?= SITE_PUBLIC_JS ?>libs/jquery-3.7.1.min.js"></script>
 <script type="text/javascript" src="<?= SITE_PUBLIC_JS ?>libs/bootstrap-5.3.3.bundle.min.js"></script>
-<script type="text/javascript" src="<?= SITE_PUBLIC_JS ?>libs/bootstrap.bundle.min.js.map"></script>
 <script type="text/javascript" src="<?= SITE_PUBLIC_JS ?>libs/select2.full.min.js"></script>
 <script type="text/javascript" src="<?= SITE_PUBLIC_JS ?>index.js"></script>
 <script type="text/javascript">
     const SITE_ADDRESS = "<?= SITE_ADDRESS ?>";
     const SITE_PUBLIC = "<?= SITE_PUBLIC ?>";
+    const SITE_PUBLIC_IMG = "<?= SITE_PUBLIC_IMG ?>";
+    const SITE_PUBLIC_JS = "<?= SITE_PUBLIC_JS ?>";
 </script>

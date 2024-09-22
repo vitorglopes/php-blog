@@ -6,19 +6,54 @@ use DateTime;
 use src\core\Util;
 use src\models\Posts;
 use Illuminate\Database\Capsule\Manager;
+use src\models\Categories;
 
 class PostsService
 {
     private $Posts;
+    private $Categories;
 
     public function __construct()
     {
         $this->Posts = new Posts();
+        $this->Categories = new Categories();
+    }
+
+    public function listCategories()
+    {
+        return $this->Categories::query()->orderBy('description', 'asc')->get();
     }
 
     public function read($id)
     {
         return $this->Posts::find($id);
+    }
+
+    public function update($req)
+    {
+        $post = $this->read($req['id']);
+
+        if ($post->status == 'draft' && $req['status'] != 'draft') {
+            $post->registered_at = date('Y-m-d H:i:s');
+        }
+
+        $post->title = $req['title'];
+        $post->subtitle = $req['subtitle'];
+        $post->content = $req['content'];
+        $post->status = $req['status'];
+        $post->category_id = $req['category'];
+        $post->save();
+
+        return [
+            'data' => $post,
+            'error' => false,
+            'msg' => 'Ação concluída'
+        ];
+    }
+
+    public function delete($id)
+    {
+        return $this->Posts::destroy($id);
     }
 
     public function newPost($userId)

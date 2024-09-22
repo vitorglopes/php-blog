@@ -1,4 +1,5 @@
 APP_NAME=THE_BORING_BLOG
+TIMEZONE=America/Sao_Paulo
 
 DB_DRIVER=mysql
 DB_HOST=localhost

@@ -7,17 +7,15 @@ use src\core\Response;
 
 class Controller
 {
-    private Util $util;
-    private Response $response;
+    public Response $response;
 
     public function __construct()
     {
-        $this->util = new Util();
         $this->response = new Response();
         $this->setDefaultPages();
     }
 
-    public function setDefaultPages()
+    public function setDefaultPages(): void
     {
         define('SITE_HOME', SITE_ADDRESS . "home/index");
         define('SITE_LOGIN', SITE_ADDRESS . "login/index");

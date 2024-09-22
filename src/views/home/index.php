@@ -45,7 +45,7 @@ $lastsPosts = $data['lastsPosts']['data'];
         </div>
         <div class="row mt-4">
             <div class="col-md-12" id="content-wrap">
-                <h3 class="roboto-black text-red">Últimas postagens</h3>
+                <h3 class="roboto-black text-red">Últimas publicações</h3>
                 <?php foreach ($lastsPosts as $item) { ?>
                     <div class="row">
                         <a class="link-offset-2 link-underline link-underline-opacity-0 text-black" href="<?= SITE_ADDRESS ?>posts/index?sid=<?= $item['id'] ?>">

@@ -55,6 +55,10 @@ class ComposerStaticInit3b1a5529c7be59e0ad33027eba4543c7
             'Psr\\Clock\\' => 10,
             'Psr\\Cache\\' => 10,
         ),
+        'L' => 
+        array (
+            'Laravel\\SerializableClosure\\' => 28,
+        ),
         'I' => 
         array (
             'Illuminate\\Support\\' => 19,
@@ -170,6 +174,10 @@ class ComposerStaticInit3b1a5529c7be59e0ad33027eba4543c7
         'Psr\\Cache\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/cache/src',
+        ),
+        'Laravel\\SerializableClosure\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravel/serializable-closure/src',
         ),
         'Illuminate\\Support\\' => 
         array (

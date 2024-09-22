@@ -13,6 +13,7 @@ class PostsController extends Controller implements IController
 
     public function __construct()
     {
+        parent::__construct();
         $this->PostsService = new PostsService();
     }
 
@@ -38,9 +39,12 @@ class PostsController extends Controller implements IController
             $post = $this->PostsService->read($postId);
         }
 
+        $categories = $this->PostsService->listCategories();
+
         return $this->view('posts/edit', [
             'data' => $post,
-            'sid' => Util::secureValue($post->id)
+            'sid' => Util::secureValue($post->id),
+            'categories' => $categories
         ]);
     }
 
@@ -56,6 +60,41 @@ class PostsController extends Controller implements IController
             'order' => 'registered_at'
         ]);
 
-        $this->view('posts/myposts', $data);
+        $this->view('posts/myposts', [
+            'posts' => $data
+        ]);
+    }
+
+    public function api($action)
+    {
+        $id = Util::requestSecure('sid', 'get');
+        $return = ['error' => true, 'msg' => ''];
+
+        switch ($action) {
+            case 'delete':
+                $return = [
+                    'data' => $this->PostsService->delete($id),
+                    'error' => false,
+                    'msg' => 'Ação concluída'
+                ];
+                break;
+
+            case 'save':
+                $req = [
+                    'id' => $id,
+                    'title' => Util::request('title'),
+                    'subtitle' => Util::request('subtitle'),
+                    'content' => Util::request('content'),
+                    'status' => Util::request('status'),
+                    'category' => Util::request('category')
+                ];
+                $return = $this->PostsService->update($req);
+                break;
+
+            default:
+                break;
+        }
+
+        return $this->response::json($return);
     }
 }
