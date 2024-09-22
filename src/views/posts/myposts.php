@@ -20,19 +20,36 @@ $userSession = isset($_SESSION['userId']) ? $_SESSION['userId'] : 0;
     <div class="container" id="page-container">
         <div class="row mt-4">
             <h3 class="roboto-black text-red">Minhas postagens</h3>
-            <?php foreach ($myposts as $item) { ?>
+            <?php foreach ($myposts as $item) {
+                $linkToPost = $item['status'] != 'draft' ? SITE_ADDRESS . "posts/index?sid=" . $item['id'] : '#';
+            ?>
                 <div class="row">
-                    <a class="link-offset-2 link-underline link-underline-opacity-0 text-black" href="<?= SITE_ADDRESS ?>posts/index?sid=<?= $item['id'] ?>">
-                        <span class="badge text-bg-secondary">
-                            <?= empty($item['title']) || empty($item['subtitle']) ? 'Rascunho' : $item['categoryDescription'] ?>
-                        </span>
+                    <a class="link-offset-2 link-underline link-underline-opacity-0 text-black" href="<?= $linkToPost ?>">
+                        <?php
+                        switch ($item['status']) {
+                            case 'ok':
+                                echo '<span class="badge bg-success"> Postado </span>';
+                                break;
+
+                            case 'draft':
+                                echo '<span class="badge bg-warning"> Rascunho </span>';
+                                break;
+
+                            case 'hidden':
+                                echo '<span class="badge bg-dark"> Privado </span>';
+                                break;
+                        }
+                        ?>
                         <h5 class="roboto-bold"><?= !empty($item['title']) ? $item['title'] : '<i class="icon icon-edit-2 icon-16 icon-black"></i> Rascunho ' ?> </h5>
                     </a>
                     <p class="roboto-regular"><?= $item['subtitle'] ?></p>
-                    <small class="roboto-regular font-11">
-                        <i class="icon icon-eye icon-black icon-16"></i> <?= $item['views'] . " visualizações." ?>
-                        <i class="icon icon-eye icon-user icon-16"></i> Postado em <?= Util::dateFromDb($item['registeredAt']) ?>
-                    </small>
+
+                    <?php if ($item['status'] != 'draft') { ?>
+                        <small class="roboto-regular font-11">
+                            <i class="icon icon-eye icon-black icon-16"></i> <?= $item['views'] ?>
+                            <i class="icon icon-eye icon-user icon-16"></i> Postado em <?= Util::dateFromDb($item['registeredAt']) ?>
+                        </small>
+                    <?php } ?>
                 </div>
                 <?php if ($sessionOk && $item['userId'] == $userSession) { ?>
                     <div class="text-end">

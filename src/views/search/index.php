@@ -39,7 +39,7 @@ $data = $data['data']['data'];
                             <p class="roboto-regular"><?= $item['subtitle'] ?></p>
                             <small></small>
                             <small class="roboto-regular font-11">
-                                <i class="icon icon-eye icon-black icon-16"></i> <?= $item['views'] . " visualizações." ?>
+                                <i class="icon icon-eye icon-black icon-16"></i> <?= $item['views'] ?>
                                 <i class="icon icon-eye icon-user icon-16"></i> <?= $item['userFirstName'] . " " . $item['userLastName'] ?> em <?= Util::dateFromDb($item['registeredAt']) ?>
                             </small>
                         </div>
