@@ -30,6 +30,7 @@ class LoginService
         $user = $res[0] ?? [];
 
         if (empty($user) == true) {
+            $return['error'] = 'Usuário ou senha inválido!';
             return $return;
         }
 

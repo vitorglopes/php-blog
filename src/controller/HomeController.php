@@ -26,7 +26,8 @@ class HomeController extends Controller implements IController
         $lastsPosts = $this->PostServices->pagination([
             'useCase' => 'lastsPosts',
             'rowsPerPage' => 10,
-            'order' => ''
+            'limit' => 10,
+            'order' => 'registered_at'
         ]);
 
         $this->view('home/index', [

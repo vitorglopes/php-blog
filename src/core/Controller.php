@@ -35,7 +35,7 @@ class Controller
 
     public function userLogged(string $returnToPage)
     {
-        if ($_SESSION['login']) {
+        if (isset($_SESSION['login'])) {
             return true;
         }
 

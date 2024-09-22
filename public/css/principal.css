@@ -43,6 +43,14 @@ footer {
   border-radius: 0% !important;
 }
 
+.white-border-color {
+  border-color: #fff !important;
+}
+
+.black-border-color {
+  border-color: #000 !important;
+}
+
 .font-11 {
   font-size: 11px !important;
 }

@@ -16,13 +16,16 @@ $error = $data['error'] ?? "";
 <body class="background-gray">
     <div class="container-fluid d-flex justify-content-center align-items-center min-vh-100">
         <div class="row w-100 justify-content-center">
-            <img width="400" height="200" src="<?= SITE_PUBLIC_IMG ?>login.svg" alt="Login">
+            <h3 class="card-title text-center roboto-black">THE BORING BLOG <i class="icon icon-monitor icon-black icon-32"></i></h3>
+            <br>
+            <br>
             <div class="col-lg-4 col-md-6 col-sm-8">
-
                 <div class="card shadow-sm">
                     <div class="card-body no radius">
-                        <h3 class="card-title text-center roboto-black">THE BORING BLOG <i class="icon icon-monitor icon-black icon-32"></i></h3>
-                        <h4 class="card-title text-center roboto-regular">Entre para continuar</h4>
+                        <div class="text-center">
+                            <img width="400" height="200" src="<?= SITE_PUBLIC_IMG ?>login.svg" alt="Login">
+                        </div>
+                        <h5 class="card-title text-center roboto-regular">Entre para continuar</h5>
                         <hr>
                         <form action="<?= SITE_ADDRESS ?>login/auth" method="post">
                             <input type="hidden" id="returnToPage" name="returnToPage" value="<?= $returnToPage ?>">

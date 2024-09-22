@@ -32,4 +32,19 @@ class PostsController extends Controller implements IController
         // $this->PostsService->insertNew();
         $this->view('posts/edit', []);
     }
+
+    public function myposts()
+    {
+        $this->userLogged('posts/myposts');
+
+        $data = $this->PostsService->pagination([
+            'useCase' => 'myPosts',
+            'userId' => Util::decodeValue($_SESSION['userId']),
+            'rowsPerPage' => 10,
+            'page' => Util::request('page', 'get'),
+            'order' => 'registered_at'
+        ]);
+
+        $this->view('posts/myposts', $data);
+    }
 }

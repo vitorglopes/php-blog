@@ -32,9 +32,11 @@ class PostsService
     public function pagination(array $req): array
     {
         $search = $req['search'] ?? '';
+        $userId = $req['userId'] ?? '';
         $useCase = $req['useCase'] ?? '';
         $order = $req['order'] ?? '';
         $limit = $req['limit'] ?? '';
+        $page = $req['page'] ?? '';
         $rowsPerPage = $req['rowsPerPage'] ?? 10;
 
         if ($useCase == 'search' && $search == "") {
@@ -62,6 +64,10 @@ class PostsService
                 ->orWhere('posts.subtitle', 'like', "%$search%");
         }
 
+        if (!empty($userId) && $userId > 0) {
+            $query->where('users.id', '=', $userId);
+        }
+
         if ($useCase == 'threads') {
             $date = new DateTime();
             $week = clone $date;
@@ -79,7 +85,7 @@ class PostsService
             $query->limit($limit);
         }
 
-        $posts = $query->paginate($rowsPerPage);
+        $posts = $query->paginate($rowsPerPage, '*', 'page', $page);
 
         $data = [];
         foreach ($posts as $item) {
