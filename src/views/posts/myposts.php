@@ -5,6 +5,7 @@ namespace src\views;
 use src\core\Util;
 
 $myposts = $data['data'];
+$userSession = isset($_SESSION['userId']) ? $_SESSION['userId'] : 0;
 
 ?>
 <!DOCTYPE html>
@@ -26,13 +27,21 @@ $myposts = $data['data'];
                         <h5 class="roboto-bold"><?= $item['title'] ?> </h5>
                     </a>
                     <p class="roboto-regular"><?= $item['subtitle'] ?></p>
-                    <small></small>
                     <small class="roboto-regular font-11">
                         <i class="icon icon-eye icon-black icon-16"></i> <?= $item['views'] . " visualizações." ?>
                         <i class="icon icon-eye icon-user icon-16"></i> Postado em <?= Util::dateFromDb($item['registeredAt']) ?>
                     </small>
                 </div>
+                <?php if ($sessionOk && $item['userId'] == $userSession) { ?>
+                    <div class="text-end">
+                        <a href="<?= SITE_ADDRESS ?>posts/edit?sid=<?= $item['id'] ?>">
+                            <button class="btn btn-dark">Editar <i class="icon icon-edit icon-16 icon-white"></i></button>
+                        </a>
+                    </div>
+                <?php } ?>
                 <br>
+                <br>
+                <hr>
             <?php } ?>
             <nav>
                 <br>
