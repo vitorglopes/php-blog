@@ -21,6 +21,22 @@ class PostsService
         return $this->Posts::find($id);
     }
 
+    public function newPost($userId)
+    {
+        $post = new Posts();
+        $post->user_id = $userId;
+        $post->category_id = 1;
+        $post->views = 0;
+        $post->title = '';
+        $post->subtitle = '';
+        $post->content = '';
+        $post->registered_at = date('Y-m-d H:i:s');
+        $post->status = 'draft';
+        $post->save();
+
+        return $post;
+    }
+
     public function view($id)
     {
         $post = $this->read($id);
@@ -58,6 +74,7 @@ class PostsService
                 'posts.subtitle',
                 'posts.views',
                 'posts.registered_at',
+                'posts.status',
                 'users.id as user_id',
                 'users.first_name',
                 'users.last_name',
@@ -81,6 +98,10 @@ class PostsService
             $query->where('posts.registered_at', '>=', $week->format('Y-m-d') . " 00:00:00");
         }
 
+        if ($useCase !== 'myPosts') {
+            $query->where('posts.status', '=', 'ok');
+        }
+
         if ($order == 'views') {
             $query->orderBy('posts.views', 'desc');
         } else {
@@ -101,6 +122,7 @@ class PostsService
                 'subtitle' => $item->subtitle,
                 'views' => $item->views,
                 'registeredAt' => $item->registered_at,
+                'status' => $item->status,
                 'userId' => $item->user_id,
                 'userFirstName' => $item->first_name,
                 'userLastName' => $item->last_name,

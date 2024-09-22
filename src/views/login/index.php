@@ -16,7 +16,7 @@ $error = $data['error'] ?? "";
 <body class="background-gray">
     <div class="container-fluid d-flex justify-content-center align-items-center min-vh-100">
         <div class="row w-100 justify-content-center">
-            <h3 class="card-title text-center roboto-black">THE BORING BLOG <i class="icon icon-monitor icon-black icon-32"></i></h3>
+            <h3 class="card-title text-center roboto-black">THE BORING BLOG </h3>
             <br>
             <br>
             <div class="col-lg-4 col-md-6 col-sm-8">

@@ -9,7 +9,7 @@ $welcome = $sessionOk ? "Olá, " . $_SESSION['firstName'] . "! " . ' <i class="i
 
 <nav class="navbar navbar-expand-md border-bottom border-body background-red" data-bs-theme="dark">
     <div class="container-fluid">
-        <a class="navbar-brand roboto-black" href="<?= SITE_ADDRESS ?>home/index"></i> THE BORING BLOG <i class="icon icon-monitor icon-white icon-24"></i></a>
+        <a class="navbar-brand roboto-black" href="<?= SITE_ADDRESS ?>home/index"></i> THE BORING BLOG </a>
         <button class="navbar-toggler no-radius" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -21,7 +21,7 @@ $welcome = $sessionOk ? "Olá, " . $_SESSION['firstName'] . "! " . ' <i class="i
                 </li>
                 <?php if ($sessionOk == true) { ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= SITE_ADDRESS ?>posts/edit">Novo post <i class="icon icon-file-plus icon-white icon-24"></i></a>
+                        <a class="nav-link" href="<?= SITE_ADDRESS ?>posts/edit?sid=new">Novo post <i class="icon icon-file-plus icon-white icon-24"></i></a>
                     </li>
                 <?php } ?>
                 <?php if ($sessionOk == true) { ?>

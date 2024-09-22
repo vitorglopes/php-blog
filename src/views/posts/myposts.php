@@ -23,8 +23,10 @@ $userSession = isset($_SESSION['userId']) ? $_SESSION['userId'] : 0;
             <?php foreach ($myposts as $item) { ?>
                 <div class="row">
                     <a class="link-offset-2 link-underline link-underline-opacity-0 text-black" href="<?= SITE_ADDRESS ?>posts/index?sid=<?= $item['id'] ?>">
-                        <span class="badge text-bg-secondary"><?= $item['categoryDescription'] ?></span>
-                        <h5 class="roboto-bold"><?= $item['title'] ?> </h5>
+                        <span class="badge text-bg-secondary">
+                            <?= empty($item['title']) || empty($item['subtitle']) ? 'Rascunho' : $item['categoryDescription'] ?>
+                        </span>
+                        <h5 class="roboto-bold"><?= !empty($item['title']) ? $item['title'] : '<i class="icon icon-edit-2 icon-16 icon-black"></i> Rascunho ' ?> </h5>
                     </a>
                     <p class="roboto-regular"><?= $item['subtitle'] ?></p>
                     <small class="roboto-regular font-11">
