@@ -40,7 +40,13 @@ class PostsService
         $rowsPerPage = $req['rowsPerPage'] ?? 10;
 
         if ($useCase == 'search' && $search == "") {
-            return ['data' => []];
+            return [
+                'data' => [],
+                'currentPage' => 0,
+                'lastPage' => 0,
+                'total' => 0,
+                'perPage' => 0,
+            ];
         }
 
         $query = Manager::table('posts')
