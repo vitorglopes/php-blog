@@ -16,9 +16,6 @@ $welcome = $sessionOk ? "Olá, " . $_SESSION['firstName'] . "! " . ' <i class="i
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">&nbsp;</li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= SITE_ADDRESS ?>threads/index">Tendências <i class="icon icon-activity icon-white icon-24"></i></a>
-                </li>
                 <?php if ($sessionOk == true) { ?>
                     <li class="nav-item">
                         <a class="nav-link" href="<?= SITE_ADDRESS ?>posts/edit?sid=new">Novo post <i class="icon icon-file-plus icon-white icon-24"></i></a>
@@ -41,21 +38,9 @@ $welcome = $sessionOk ? "Olá, " . $_SESSION['firstName'] . "! " . ' <i class="i
             <span class="navbar-text">
                 <a class="nav-link" href="<?= SITE_ADDRESS ?>login/index"><?= $welcome ?></a>
             </span>
-            <!-- <ul>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </li>
-            </ul> -->
+            <span class="navbar-text">
+                <a class="nav-link" href="<?= SITE_ADDRESS ?>login/logout">Sair <i class="icon icon-logout icon-24 icon-white"></i></a>
+            </span>
         </div>
     </div>
 </nav>
