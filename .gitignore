@@ -3,3 +3,5 @@
 .idea
 
 conf.ini
+public/storage/posts/*
+public/storage/uploads/*
