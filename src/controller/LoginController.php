@@ -13,6 +13,7 @@ class LoginController extends Controller implements IController
 
     public function __construct()
     {
+        parent::__construct();
         $this->LoginService = new LoginService();
     }
 
@@ -41,5 +42,11 @@ class LoginController extends Controller implements IController
             'returnToPage' => $returnToPage,
             'error' => $login['error']
         ]);
+    }
+
+    public function logout()
+    {
+        session_destroy();
+        header('Location: ' . SITE_HOME);
     }
 }
