@@ -26,7 +26,11 @@ class PostsService
 
     public function read($id)
     {
-        return $this->Posts::find($id);
+        return $this->Posts::join('categories', 'posts.category_id', '=', 'categories.id')
+            ->join('users', 'posts.user_id', '=', 'users.id')
+            ->select('posts.*', 'categories.description as category_description', 'users.first_name', 'users.last_name')
+            ->where('posts.id', $id)
+            ->first();
     }
 
     public function update($req)
