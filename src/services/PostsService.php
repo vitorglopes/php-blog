@@ -57,7 +57,9 @@ class PostsService
 
     public function delete($id)
     {
-        return $this->Posts::destroy($id);
+        $return = $this->Posts::destroy($id);
+        $this->deleteDir($id);
+        return $return;
     }
 
     public function newPost($userId)
@@ -73,7 +75,20 @@ class PostsService
         $post->status = 'draft';
         $post->save();
 
+        $this->createDir($post->id);
         return $post;
+    }
+
+    public function createDir($id)
+    {
+        $dir = DOCUMENT_ROOT . "/public/storage/posts/$id";
+        return mkdir($dir);
+    }
+
+    public function deleteDir($id)
+    {
+        $dir = DOCUMENT_ROOT . "/public/storage/posts/$id";
+        return rmdir($dir);
     }
 
     public function view($id)
