@@ -18,15 +18,15 @@ class HomeController extends Controller implements IController
     {
         $threads = $this->PostServices->pagination([
             'useCase' => 'threads',
-            'rowsPerPage' => 5,
-            'limit' => 5,
+            'rowsPerPage' => 6,
+            'limit' => 6,
             'order' => 'views'
         ]);
 
         $lastsPosts = $this->PostServices->pagination([
             'useCase' => 'lastsPosts',
-            'rowsPerPage' => 10,
-            'limit' => 10,
+            'rowsPerPage' => 12,
+            'limit' => 12,
             'order' => 'registered_at'
         ]);
 
