@@ -22,7 +22,9 @@ class PostsController extends Controller implements IController
         $postId = Util::requestSecure('sid', 'get');
         $data = $this->PostsService->view($postId);
         $this->view('posts/index', [
-            'post' => $data
+            'post' => $data,
+            'sid' => Util::secureValue($data->id),
+            'comments' => $this->PostsService->getPostComments($data->id)
         ]);
     }
 
@@ -67,11 +69,11 @@ class PostsController extends Controller implements IController
 
     public function api($action)
     {
-        $id = Util::requestSecure('sid', 'get');
         $return = ['error' => true, 'msg' => ''];
 
         switch ($action) {
             case 'delete':
+                $id = Util::requestSecure('sid', 'get');
                 $return = [
                     'data' => $this->PostsService->delete($id),
                     'error' => false,
@@ -80,6 +82,7 @@ class PostsController extends Controller implements IController
                 break;
 
             case 'save':
+                $id = Util::requestSecure('sid', 'get');
                 $req = [
                     'id' => $id,
                     'title' => Util::request('title'),
@@ -89,6 +92,16 @@ class PostsController extends Controller implements IController
                     'category' => Util::request('category')
                 ];
                 $return = $this->PostsService->update($req);
+                break;
+
+            case 'new-comment':
+                $req = [
+                    'refCommentId' => Util::request('refCommentId'),
+                    'postId' => Util::requestSecure('postId'),
+                    'userId' => Util::request('userId'),
+                    'content' => Util::request('content')
+                ];
+                $return = $this->PostsService->newComment($req);
                 break;
 
             default:

@@ -4,19 +4,22 @@ namespace src\services;
 
 use DateTime;
 use src\core\Util;
-use src\models\Posts;
 use Illuminate\Database\Capsule\Manager;
 use src\models\Categories;
+use src\models\Comments;
+use src\models\Posts;
 
 class PostsService
 {
-    private $Posts;
     private $Categories;
+    private $Comments;
+    private $Posts;
 
     public function __construct()
     {
-        $this->Posts = new Posts();
         $this->Categories = new Categories();
+        $this->Comments = new Comments();
+        $this->Posts = new Posts();
     }
 
     public function listCategories()
@@ -97,6 +100,26 @@ class PostsService
         $post->views = (int) $post->views + 1;
         $post->save();
         return $post;
+    }
+
+    public function getPostComments($postId)
+    {
+        return $this->Comments::join('users', 'users.id', '=', 'comments.user_id')
+            ->select('comments.*', 'users.id as userId', 'users.first_name as firstName', 'users.last_name as lastName')
+            ->where('comments.post_id', $postId)
+            ->orderBy('comments.registered_at', 'desc')
+            ->get();
+    }
+
+    public function newComment(array $req)
+    {
+        $this->Comments->ref_comment_id = $req['refCommentId'];
+        $this->Comments->post_id = $req['postId'];
+        $this->Comments->user_id = $req['userId'];
+        $this->Comments->content = $req['content'];
+        $this->Comments->registered_at = date('Y-m-d H:i:s');
+        $this->Comments->save();
+        return $this->Comments;
     }
 
     public function pagination(array $req): array

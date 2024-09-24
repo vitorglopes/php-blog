@@ -48,7 +48,6 @@ $lastsPosts = $data['lastsPosts']['data'];
                                     <div class="card-body">
                                         <span class="badge bg-info"><?= $item['categoryDescription'] ?></span>
                                         <h5 class="roboto-bold"><?= "$i. " . $item['title'] ?> </h5>
-
                                         <p class="roboto-regular"><?= $item['subtitle'] ?></p>
                                         <small class="roboto-regular font-11">
                                             <i class="icon icon-eye icon-black icon-16"></i> <?= $item['views'] ?>
