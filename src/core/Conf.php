@@ -22,7 +22,7 @@ class Conf
         $this->documentRoot = filter_var($_SERVER['DOCUMENT_ROOT']);
         $this->pathToConfIni = $this->documentRoot . DIRECTORY_SEPARATOR . "conf.ini";
 
-        if ($this->pathToConfIni == "\conf.ini" || empty($this->pathToConfIni)) {
+        if ($this->pathToConfIni == DIRECTORY_SEPARATOR . "conf.ini" || empty($this->pathToConfIni) || !file_exists($this->pathToConfIni)) {
             $this->documentRoot = __DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR;
             $this->pathToConfIni = $this->documentRoot . "conf.ini";
         }
