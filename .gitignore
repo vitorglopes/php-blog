@@ -3,8 +3,11 @@
 .idea
 
 conf.ini
-public/storage/posts/*
-public/storage/uploads/*
 
 vendor/*
 
+public/storage/uploads/*
+!public/storage/uploads/.gitkeep
+
+public/storage/posts/*
+!public/storage/posts/.gitkeep
