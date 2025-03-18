@@ -1,8 +1,15 @@
-# php-server-pages
+## PHP BLOG
 
-### Migrations - Doctrine
+Projeto criado para a disciplina de Frameworks de Frontend - UniFacthus.  
 
-1. Create new migration: `vendor/bin/doctrine-migrations generate`
-2. Run migrations: `vendor/bin/doctrine-migrations migrate`
-3. Status migrations: `vendor/bin/doctrine-migrations status --show-versions`
-4. Migration test (dry run): `vendor/bin/doctrine-migrations migrate --dry-run`
+- Backend: PHP 8.2 (Sem framework).  
+- Frontend: JavaScript, jQuery, Bootstrap.  
+
+### Doctrine Migrations
+```bash
+1. Create new migration: vendor/bin/doctrine-migrations generate
+2. Run migrations: vendor/bin/doctrine-migrations migrate
+3. Status migrations: vendor/bin/doctrine-migrations status --show-versions
+4. Migration test (dry run): vendor/bin/doctrine-migrations migrate --dry-run
+```
+
